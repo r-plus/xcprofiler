@@ -92,7 +92,7 @@ require 'xcprofiler'
 profiler = Xcprofiler::Profiler.by_product_name('MyApp')
 profiler.reporters = [
   Xcprofiler::StandardOutputReporter.new(limit: 20, order: :time),
-  Xcprofiler::JSONReporter.new(output_path: 'result.json'),
+  Xcprofiler::JSONReporter.new(output: 'result.json'),
   Xcprofiler::BlockReporter.new do |executions|
     do_something(executions)
   end,

@@ -10,14 +10,14 @@ describe JSONReporter do
 
   let(:derived_data_root) { File.absolute_path(File.join(__FILE__, '../../fixtures')) }
 
-  context 'with output path' do
+  context 'with output' do
     let(:dir) { Dir.mktmpdir }
-    let(:output_path) { File.join(dir, 'result.json') }
-    let(:reporter) { JSONReporter.new(output_path: output_path) }
+    let(:output) { File.join(dir, 'result.json') }
+    let(:reporter) { JSONReporter.new(output: output) }
 
     it 'exports json' do
       profiler.report!
-      expect(File.exist?(output_path)).to be_truthy
+      expect(File.exist?(output)).to be_truthy
     end
 
     after do
